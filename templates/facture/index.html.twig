@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des factures</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Date de facturation</th>
+            <th>Numéro de facture</th>
+            <th>Identifiant client</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.dateFacturation|date('Y-m-d') }}</td>
+                <td>{{ facture.numeroFacture }}</td>
+                <td>{{ facture.identifiantClient }}</td>
+                <td><a href="{{ path('facture_show', {'id': facture.id}) }}">Voir la facture</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
