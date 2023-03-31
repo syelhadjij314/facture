@@ -18,13 +18,13 @@ class Facture
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTime $date_facture = null;
+    private ?\DateTimeInterface $dateFacture = null;
 
     #[ORM\Column]
-    private ?int $numero_facture = null;
+    private ?int $numeroFacture = null;
 
     #[ORM\Column]
-    private ?int $identifiant_client = null;
+    private ?int $identifiantClient = null;
 
     #[ORM\OneToMany(mappedBy: 'facture', targetEntity: LigneFacture::class)]
     private Collection $ligneFacture;
@@ -39,38 +39,38 @@ class Facture
         return $this->id;
     }
 
-    public function getDateFacture(): ?\DateTime
+    public function getDateFacture(): ?\DateTimeInterface
     {
-        return $this->date_facture;
+        return $this->dateFacture;
     }
 
-    public function setDateFacture(\DateTime $date_facture): self
+    public function setDateFacture(\DateTimeInterface $dateFacture): self
     {
-        $this->date_facture = $date_facture;
+        $this->dateFacture = $dateFacture;
 
         return $this;
     }
 
     public function getNumeroFacture(): ?int
     {
-        return $this->numero_facture;
+        return $this->numeroFacture;
     }
 
-    public function setNumeroFacture(int $numero_facture): self
+    public function setNumeroFacture(int $numeroFacture): self
     {
-        $this->numero_facture = $numero_facture;
+        $this->numeroFacture = $numeroFacture;
 
         return $this;
     }
 
     public function getIdentifiantClient(): ?int
     {
-        return $this->identifiant_client;
+        return $this->identifiantClient;
     }
 
-    public function setIdentifiantClient(int $identifiant_client): self
+    public function setIdentifiantClient(int $identifiantClient): self
     {
-        $this->identifiant_client = $identifiant_client;
+        $this->identifiantClient = $identifiantClient;
 
         return $this;
     }

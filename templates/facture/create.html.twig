@@ -1,0 +1,25 @@
+{# templates/facture/create.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Création d'une facture</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.dateFacture) }}
+    {{ form_row(form.numeroFacture) }}
+    {{ form_row(form.identifiantClient) }}
+    {{ form_label(form.ligneFacture) }}
+    <ul class="list-group">
+        {% for ligneFactureForm in form.ligneFacture %}
+            <li class="list-group-item">
+                {{ form_row(ligneFactureForm.description) }}
+                {{ form_row(ligneFactureForm.quantite) }}
+                {{ form_row(ligneFactureForm.montant) }}
+                {{ form_row(ligneFactureForm.montantTva) }}
+                {{ form_row(ligneFactureForm.totalTva) }}
+            </li>
+        {% endfor %}
+    </ul>
+    {{ form_end(form) }}
+{% endblock %}
